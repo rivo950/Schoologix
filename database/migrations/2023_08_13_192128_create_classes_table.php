@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
-            $table->string('nomClasse');
-            $table->date('anneeScolaire');
+            $table->foreignId('etudiant_id')->constrained()->cascadeOnDelete();
+            $table->string('nom');
+            $table->date('annee_scolaire');
             $table->timestamps();
         });
     }
