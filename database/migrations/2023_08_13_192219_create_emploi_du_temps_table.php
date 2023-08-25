@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('emploi_du_temps', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('classe_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('enseignant_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('matiere_id')->constrained()->cascadeOnDelete();
+            $table->date('jourSemaine');
+            $table->time('heureDebit');
+            $table->time('heureFin');
             $table->timestamps();
         });
     }
